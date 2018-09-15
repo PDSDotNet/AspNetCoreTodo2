@@ -1,0 +1,26 @@
+cd /C/ProgCS/AspNetCoreTodo/
+
+subir todo
+git remote add origin https://github.com/PDSDotNet/AspNetCoreTodo.git	
+git push origin master				
+
+
+Sube modificaciones agregadas con add
+git push origin master
+
+--------------------------------------------------------------------
+
+Baja de la nuve la diferencia entre el repositorio local y la nube. 
+git pull https://github.com/PDSDotNet/AspNetCoreTodo.git	
+
+Baja de la nuve todo el repositorio. 
+git clone https://github.com/PDSDotNet/AspNetCoreTodo.git
+
+---------------------------------------------------------------------
+
+.gitignore
+obj
+bin
+vs
+.vs
+.vscode
