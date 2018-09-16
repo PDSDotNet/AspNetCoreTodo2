@@ -1,7 +1,7 @@
 cd /C/ProgCS/AspNetCoreTodo/
 
 subir todo
-git remote add origin https://github.com/PDSDotNet/AspNetCoreTodo.git	
+git remote add origin https://github.com/PDSDotNet/AspNetCoreTodo2.git	
 git push origin master				
 
 
