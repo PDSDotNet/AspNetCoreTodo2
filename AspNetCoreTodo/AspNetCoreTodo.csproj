@@ -6,6 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Todo\AddItemPartial.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Views\Todo\AddItemPartial.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
