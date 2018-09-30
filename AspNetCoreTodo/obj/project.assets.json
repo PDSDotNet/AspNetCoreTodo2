@@ -13542,23 +13542,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\AngioCom\\.nuget\\packages\\": {},
+    "C:\\Users\\Pablo Daniel Scuteri\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ProgCS\\AspNetCoreTodo\\AspNetCoreTodo\\AspNetCoreTodo.csproj",
+      "projectUniqueName": "D:\\Facultad\\Cursos\\dotNet\\Codigo\\AspNetCoreTodo2\\AspNetCoreTodo\\AspNetCoreTodo.csproj",
       "projectName": "AspNetCoreTodo",
-      "projectPath": "C:\\ProgCS\\AspNetCoreTodo\\AspNetCoreTodo\\AspNetCoreTodo.csproj",
-      "packagesPath": "C:\\Users\\AngioCom\\.nuget\\packages\\",
-      "outputPath": "C:\\ProgCS\\AspNetCoreTodo\\AspNetCoreTodo\\obj\\",
+      "projectPath": "D:\\Facultad\\Cursos\\dotNet\\Codigo\\AspNetCoreTodo2\\AspNetCoreTodo\\AspNetCoreTodo.csproj",
+      "packagesPath": "C:\\Users\\Pablo Daniel Scuteri\\.nuget\\packages\\",
+      "outputPath": "D:\\Facultad\\Cursos\\dotNet\\Codigo\\AspNetCoreTodo2\\AspNetCoreTodo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\AngioCom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Pablo Daniel Scuteri\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

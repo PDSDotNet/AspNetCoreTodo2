@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\AngioCom\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\AngioCom\\.nuget\\packages",
+      "C:\\Users\\Pablo Daniel Scuteri\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Pablo Daniel Scuteri\\.nuget\\packages",
       "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }
