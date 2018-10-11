@@ -18,11 +18,22 @@ namespace AspNetCoreTodo.Services
             _context = context;
         }
 
+        /// <summary>
+        /// Servicio llamado por el TodoItemControler.Index() para obtener
+        /// la lista de tareas.
+        /// </summary>
+        /// <returns></returns>
         public async Task<TodoItem[]> GetIncompletItemsAsync()
         {
             return await _context.Items.Where(x => x.IsDone == false).ToArrayAsync();
         }
 
+
+        /// <summary>
+        /// Servicio llamado por el TodoItemControler.AddItem() para agregar una tarea
+        /// </summary>
+        /// <param name="newItem"></param>
+        /// <returns></returns>
         public async Task<bool> AddItemAsync(TodoItem newItem)
         {
             newItem.Id = Guid.NewGuid();

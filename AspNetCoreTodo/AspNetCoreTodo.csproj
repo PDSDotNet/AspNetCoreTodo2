@@ -10,10 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\js\DatePickerScr.js" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Page Include="Views\Todo\AddItemPartial.cshtml" />
   </ItemGroup>
 

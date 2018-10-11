@@ -1,5 +1,0 @@
-﻿<!--Para que sea fuertemente tipado-->
-@model DateTime
-
-<!--es un HTML Box que renderea un campo de entrada-->
-@Html.TextBox("", String.Format("{0:d}", Model.ToShortDateString()), new { @class = "datefield", type = "date" })

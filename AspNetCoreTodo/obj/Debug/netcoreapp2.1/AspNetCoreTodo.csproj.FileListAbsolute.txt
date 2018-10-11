@@ -71,5 +71,4 @@ D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcor
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\AspNetCoreTodo.dll
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\AspNetCoreTodo.pdb
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\AspNetCoreTodo.csproj.CopyComplete
-D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\Razor\Views\Shared\DatePartial.g.cshtml.cs
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

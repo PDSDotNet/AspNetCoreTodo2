@@ -13,12 +13,19 @@ namespace AspNetCoreTodo.Controllers
     {
         private readonly ITodoItemService _todoItemService;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="todoItemService"></param>
         public TodoController(ITodoItemService todoItemService)
         {
             _todoItemService = todoItemService;
         }
 
-
+        /// <summary>
+        /// Muestra la lista de tareas
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Index()
         {
             var items = await _todoItemService.GetIncompletItemsAsync();
@@ -31,6 +38,12 @@ namespace AspNetCoreTodo.Controllers
             return View(model); 
         }
 
+
+        /// <summary>
+        /// Agrega un tarea (TodoItem) a la lista
+        /// </summary>
+        /// <param name="newItem"></param>
+        /// <returns></returns>
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddItem( TodoItem newItem)
         {
