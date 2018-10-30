@@ -19,6 +19,10 @@ namespace AspNetCoreTodo.Controllers
         }
 
 
+
+
+
+
         public async Task<IActionResult> Index()
         {
             var items = await _todoItemService.GetIncompletItemsAsync();
@@ -43,5 +47,28 @@ namespace AspNetCoreTodo.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> MarkDone(Guid id)
+        {
+            //Verifica que el identificador de Todo no este vacio
+            if( id == Guid.Empty)
+                return RedirectToAction("Index");
+
+            //Marca el Item como realizado (done) a travez del servicio MarkDoneAsync()
+            var successful = await _todoItemService.MarkDoneAsync( id);
+
+            //Verifica que MarkDoneAsync() halla modificado el Item
+            if ( !successful)
+                return BadRequest("No se pudo marcar el item como realizado."); 
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
+
     }
 }
