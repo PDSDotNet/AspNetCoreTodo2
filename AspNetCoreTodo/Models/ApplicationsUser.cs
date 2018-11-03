@@ -2,7 +2,7 @@
 
 namespace AspNetCoreTodo.Models
 {
-    public class ApplicationsUser: IdentityUser
+    public class ApplicationUser: IdentityUser
     {
     }
 }

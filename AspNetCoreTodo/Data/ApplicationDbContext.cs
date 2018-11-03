@@ -8,7 +8,7 @@ using AspNetCoreTodo.Models;
 
 namespace AspNetCoreTodo.Data
 {
-    public class ApplicationDbContext : IdentityDbContext< ApplicationsUser>
+    public class ApplicationDbContext : IdentityDbContext< ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

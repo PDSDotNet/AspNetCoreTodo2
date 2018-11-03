@@ -41,7 +41,7 @@ namespace AspNetCoreTodo
                 options.UseSqlite( Configuration.GetConnectionString("DefaultConnection")));
 
             //services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddDefaultIdentity< ApplicationsUser>().AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDefaultIdentity< ApplicationUser>().AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
