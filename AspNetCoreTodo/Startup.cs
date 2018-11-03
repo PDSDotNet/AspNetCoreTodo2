@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 using AspNetCoreTodo.Services;
+using AspNetCoreTodo.Models;
 
 namespace AspNetCoreTodo
 {
@@ -39,7 +40,8 @@ namespace AspNetCoreTodo
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite( Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDefaultIdentity< ApplicationsUser>().AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 

@@ -3,19 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 using AspNetCoreTodo.Services;
 using AspNetCoreTodo.Models;
 
+
 namespace AspNetCoreTodo.Controllers
 {
+    [Authorize]
     public class TodoController : Controller
     {
         private readonly ITodoItemService _todoItemService;
+        private readonly UserManager<ApplicationsUser> _userManager;
 
-        public TodoController(ITodoItemService todoItemService)
+
+        /// <summary>
+        /// Constuctor del TodoControler
+        /// </summary>
+        /// <param name="todoItemService"></param>
+        /// <param name="userManager"></param>
+        public TodoController(  ITodoItemService todoItemService,
+                                UserManager< ApplicationsUser> userManager)
         {
             _todoItemService = todoItemService;
+            _userManager = userManager;
         }
 
 
@@ -25,7 +38,12 @@ namespace AspNetCoreTodo.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var items = await _todoItemService.GetIncompletItemsAsync();
+            //obtencion del usuario logeado
+            var currentUser = await _userManager.GetUserAsync( User);
+            if (currentUser == null)
+                return Challenge(); //fuerza el logeo, mostrando la pagina de logeo
+
+            var items = await _todoItemService.GetIncompletItemsAsync( currentUser);
 
             var model = new TodoViewModel()
             {
@@ -35,18 +53,32 @@ namespace AspNetCoreTodo.Controllers
             return View(model); 
         }
 
+
+
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddItem( TodoItem newItem)
         {
             if (!ModelState.IsValid)
                 return RedirectToAction("Index");
 
-            var succesfull = await _todoItemService.AddItemAsync(newItem);
+            //obtencion del usuario logeado
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null)
+                return Challenge(); //fuerza el logeo, mostrando la pagina de logeo
+
+            if (newItem.DueAt < DateTimeOffset.Now.AddMinutes(1))
+                return RedirectToAction("Index");
+
+            var succesfull = await _todoItemService.AddItemAsync(newItem, currentUser);
             if (!succesfull)
                 return BadRequest("No se pudo agregar la tarea");
 
             return RedirectToAction("Index");
         }
+
+
+
+
 
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> MarkDone(Guid id)
@@ -55,8 +87,13 @@ namespace AspNetCoreTodo.Controllers
             if( id == Guid.Empty)
                 return RedirectToAction("Index");
 
+            //obtencion del usuario logeado
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null)
+                return Challenge(); //fuerza el logeo, mostrando la pagina de logeo
+
             //Marca el Item como realizado (done) a travez del servicio MarkDoneAsync()
-            var successful = await _todoItemService.MarkDoneAsync( id);
+            var successful = await _todoItemService.MarkDoneAsync( id, currentUser);
 
             //Verifica que MarkDoneAsync() halla modificado el Item
             if ( !successful)

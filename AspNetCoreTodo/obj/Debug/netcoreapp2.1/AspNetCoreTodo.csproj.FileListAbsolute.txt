@@ -43,7 +43,6 @@ D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\bin\Debug\netcor
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\bin\Debug\netcoreapp2.1\AspNetCoreTodo.pdb
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\bin\Debug\netcoreapp2.1\AspNetCoreTodo.Views.dll
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\bin\Debug\netcoreapp2.1\AspNetCoreTodo.Views.pdb
-D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\AspNetCoreTodo.csprojAssemblyReference.cache
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\AspNetCoreTodo.csproj.CoreCompileInputs.cache
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\AspNetCoreTodo.RazorAssemblyInfo.cache
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\AspNetCoreTodo.RazorAssemblyInfo.cs
@@ -72,3 +71,4 @@ D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcor
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\AspNetCoreTodo.pdb
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\AspNetCoreTodo.csproj.CopyComplete
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\AspNetCoreTodo.csprojAssemblyReference.cache

@@ -32,5 +32,11 @@ namespace AspNetCoreTodo.Models
         /// Tiempo en que finaliza la tarea. el "?" indica que puede ser nuleable
         /// </summary>
         public DateTimeOffset? DueAt { get; set; }
+
+
+        /// <summary>
+        /// Id del usuario al que le pertenece la tarea.
+        /// </summary>
+        public string UserId { get; set; }
     }
 }

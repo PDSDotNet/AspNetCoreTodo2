@@ -1,7 +1,8 @@
 @using Microsoft.AspNetCore.Identity
+@using AspNetCoreTodo.Models
 
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<ApplicationsUser> SignInManager
+@inject UserManager<ApplicationsUser> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {

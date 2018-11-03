@@ -13,22 +13,36 @@ namespace AspNetCoreTodo.Services
     {
         private readonly ApplicationDbContext _context;
 
+        /// <summary>
+        /// Constuctor del Servicio Todo. 
+        /// Los servicios son metodos llamados por el Controler.
+        /// </summary>
+        /// <param name="context"></param>
         public TodoItemService(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<TodoItem[]> GetIncompletItemsAsync()
+
+
+
+
+
+        public async Task<TodoItem[]> GetIncompletItemsAsync( ApplicationsUser user)
         {
-            return await _context.Items.Where(x => x.IsDone == false).ToArrayAsync();
+            return await _context.Items.Where(x => x.IsDone == false && x.UserId == user.Id).ToArrayAsync();
         }
 
-        public async Task<bool> AddItemAsync(TodoItem newItem)
+
+
+        public async Task<bool> AddItemAsync(TodoItem newItem, ApplicationsUser user)
         {
             newItem.Id = Guid.NewGuid();
             newItem.IsDone = false;
             //para permitir que se carge la fecha desde el formulario
             //newItem.DueAt = DateTimeOffset.Now.AddDays(3);
+            newItem.UserId = user.Id;
+
 
             _context.Items.Add(newItem);
 
@@ -37,9 +51,9 @@ namespace AspNetCoreTodo.Services
         }
 
 
-        public async Task<bool> MarkDoneAsync( Guid id)
+        public async Task<bool> MarkDoneAsync( Guid id, ApplicationsUser user)
         {
-            var item = await _context.Items.Where(x => x.Id == id).SingleOrDefaultAsync();
+            var item = await _context.Items.Where(x => x.Id == id && x.UserId == user.Id).SingleOrDefaultAsync();
 
             //verifica que la tarea (item) obtenido de la base de datos
             //no sea nulo.
