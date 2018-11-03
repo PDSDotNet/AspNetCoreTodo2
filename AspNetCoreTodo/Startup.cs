@@ -37,16 +37,20 @@ namespace AspNetCoreTodo
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //"Metodo landa" inicializacion de la base de datos
+            //Usamos la base de datos SQL Lite
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite( Configuration.GetConnectionString("DefaultConnection")));
 
             //services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddDefaultIdentity< ApplicationUser>().AddEntityFrameworkStores<ApplicationDbContext>();
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //services.AddDefaultIdentity< ApplicationUser>().AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders().AddDefaultUI();
 
             //services.AddSingleton<ITodoItemService, FakeTodoItemService>();
             services.AddScoped<ITodoItemService, TodoItemService>();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
