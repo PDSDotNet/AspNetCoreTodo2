@@ -44,8 +44,15 @@ namespace AspNetCoreTodo
 
             //services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<ApplicationDbContext>();
             //services.AddDefaultIdentity< ApplicationUser>().AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders().AddDefaultUI();
+            //2018-11-07. Para que funcione el IntegrationTest
+            //services.AddIdentity<ApplicationUser, IdentityRole>()
+            //    .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders().AddDefaultUI();
+            services.AddDefaultIdentity<ApplicationUser>().AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped< IUserClaimsPrincipalFactory<ApplicationUser>, 
+                                UserClaimsPrincipalFactory<ApplicationUser, 
+                                IdentityRole>>();
+
 
             //services.AddSingleton<ITodoItemService, FakeTodoItemService>();
             services.AddScoped<ITodoItemService, TodoItemService>();

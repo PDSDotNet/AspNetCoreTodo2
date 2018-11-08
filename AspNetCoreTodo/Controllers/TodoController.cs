@@ -66,8 +66,9 @@ namespace AspNetCoreTodo.Controllers
             if (currentUser == null)
                 return Challenge(); //fuerza el logeo, mostrando la pagina de logeo
 
-            if (newItem.DueAt < DateTimeOffset.Now.AddMinutes(1))
-                return RedirectToAction("Index");
+            if (newItem.DueAt < DateTimeOffset.Now.AddSeconds(-10))
+                return BadRequest("Fecha incorrecta. No se pueden crear tareas en el pasado!");
+                //return RedirectToAction("Index");
 
             var succesfull = await _todoItemService.AddItemAsync(newItem, currentUser);
             if (!succesfull)

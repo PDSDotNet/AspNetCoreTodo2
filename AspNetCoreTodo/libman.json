@@ -5,6 +5,10 @@
     {
       "library": "bootstrap-datepicker@1.8.0",
       "destination": "wwwroot/lib/bootstrap-datepicker/"
+    },
+    {
+      "library": "bootstrap-datetimepicker@4.17.47",
+      "destination": "wwwroot/lib/bootstrap-datetimepicker/"
     }
   ]
 }

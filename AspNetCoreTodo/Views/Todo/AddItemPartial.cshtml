@@ -2,8 +2,8 @@
 
 <form asp-action="AddItem" method="POST">
     <label asp-for="Title">Agregar una nueva tarea: </label>
-    <input asp-for="Title">
+    <input asp-for="Title" value="">
     <label asp-for="DueAt">Fecha de finalizacion: </label>
-    <input asp-for="DueAt" class="DatePickerScript">
+    <input asp-for="DueAt" readonly class="DatePickerScript">
     <button type="submit">Add></button>
 </form>
