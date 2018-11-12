@@ -78,7 +78,7 @@ using Microsoft.AspNetCore.Identity;
             WriteLiteral("\t\t<ul class=\"nav navbar-nav navbar-right\">\r\n\t\t\t<li>\r\n\t\t\t\t");
             EndContext();
             BeginContext(470, 73, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e7bafa12ab714522af5e22def7cc7068", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7e08021fa0ce4b4a85424f31d320022c", async() => {
                 BeginContext(521, 18, true);
                 WriteLiteral(" Lista de usuarios");
                 EndContext();

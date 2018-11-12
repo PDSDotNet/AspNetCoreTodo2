@@ -17,4 +17,3 @@ D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo.IntegrationTests
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo.IntegrationTests\bin\Debug\netcoreapp2.1\AspNetCoreTodo.IntegrationTests.pdb
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo.IntegrationTests\obj\Debug\netcoreapp2.1\AspNetCoreTodo.IntegrationTests.dll
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo.IntegrationTests\obj\Debug\netcoreapp2.1\AspNetCoreTodo.IntegrationTests.pdb
-D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo.IntegrationTests\bin\Debug\netcoreapp2.1\app.db

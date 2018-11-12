@@ -84,11 +84,11 @@ namespace AspNetCoreTodo.xUnitTest
                 Assert.True(diference < TimeSpan.FromSeconds(3));
             }
         }
-        /*
+
         [Fact]
         public async Task NoAddNewItemAsPastDueDate()
         {
-            await SetUp("fake-000", "fake@example.com", "Testing?", DateTimeOffset.Now.AddDays(-3));
+            await SetUp("fake-000", "fake@example.com", "Testing?", DateTimeOffset.Now.AddMinutes(-3));
 
             ///Se crea otro contexto, y se verifica:
             ///     1) Que solo tenga un TodoItem.
@@ -101,7 +101,7 @@ namespace AspNetCoreTodo.xUnitTest
                 Assert.Equal(0, itemsInDataBase);
             }
         }
-        */
+
 
         [Fact]
         public async Task MarkDoneAnItemWithGoodId()

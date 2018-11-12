@@ -44,6 +44,11 @@ namespace AspNetCoreTodo.Services
             newItem.UserId = user.Id;
 
 
+            //verifica que la fecha sea actual y no este definida en le pasado.
+            if (newItem.DueAt < DateTimeOffset.Now.AddSeconds(-10))
+                return false;
+            
+
             _context.Items.Add(newItem);
 
             var saveResoult = await _context.SaveChangesAsync();
