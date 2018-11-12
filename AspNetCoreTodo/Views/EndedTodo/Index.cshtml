@@ -1,5 +1,7 @@
 ﻿@model TodoViewModel
 @using Humanizer
+@using System;
+
 
 @{
 	ViewData["TitleCompleteTodo"] = "Tareas finalizadas";
@@ -25,7 +27,7 @@
 			<tr>
 				<td>&#x2714;</td>
 				<td>@item.Title</td>
-				<td>@item.DueAt.Humanize()</td>
+				<td>@item.DueAt?.ToString("g")</td>
 			</tr>
 		}
 	</table>
