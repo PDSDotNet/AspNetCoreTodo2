@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model TodoViewModel
+
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+	var currentUser = await UserManager.GetUserAsync(User);
+
+	var isAdmin = currentUser != null && await UserManager.IsInRoleAsync(currentUser, Constants.AdministratorRole);
+
+	if (isAdmin)
+	{
+		<div>
+			<form asp-action="Index" method="POST">
+				<select asp-for="Usuarios" asp-items="ViewBag.ListaUsuarios" onchange="this.form.submit()"></select>
+				<!--<button type="submit">Cambiar usuario</button>-->
+			</form>
+		</div>
+	}
+
+}

@@ -29,7 +29,8 @@ namespace AspNetCoreTodo.Models
         public string Title { get; set; }
 
         /// <summary>
-        /// Tiempo en que finaliza la tarea. el "?" indica que puede ser nuleable
+        /// Tiempo en que debe finalizarse la tarea. 
+        /// El "?" indica que puede ser nuleable, para poder crear tareas sin limite de tiempo.
         /// </summary>
         public DateTimeOffset? DueAt { get; set; }
 
@@ -38,5 +39,15 @@ namespace AspNetCoreTodo.Models
         /// Id del usuario al que le pertenece la tarea.
         /// </summary>
         public string UserId { get; set; }
+
+        /// <summary>
+        /// Indica la Fecha y Hora en que fue creada el Todo.
+        /// </summary>
+        public DateTimeOffset? CreateDateTime { get; set; }
+
+        /// <summary>
+        /// Indica la Fecha y Hora en que le Todo fue finalizado.
+        /// </summary>
+        public DateTimeOffset? EndDateTime { get; set; }
     }
 }

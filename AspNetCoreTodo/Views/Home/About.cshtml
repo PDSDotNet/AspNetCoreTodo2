@@ -1,7 +1,38 @@
 ﻿@{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "Acerca de AspNetCoreTodo";
 }
 <h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+<div class="div_about">
+	<p class="texto_mayor">Pequeña aplicación pensada para administrar tareas. </p>
+	<p class="texto_normal">Basada en el libro LittleAspNetCoreBook de Nate Barbettini.</p>
+	<p>
+		Permite a distintos usuarios crear tareas, con su descripción y con una fecha de finalización.
+		Cuando la tarea se finaliza se le pone un tilde y esta pasa de la lista de "tareas por realizar" a la lista de "tareas realizadas".
+	</p>
+</div>
+
+<div class="div_about">
+	<p class="texto_normal">Caracteristicas agregadas: </p>
+
+	<ul>
+		<li>Asignarle un fecha de finalización a un Todo al momento de crearlo.</li>
+		<li>Ordenar los Todo’s, ubicando los más atrasados arriba.</li>
+		<li>Se agregaron los campos de fecha de creación y finalización.</li>
+		<li>Marcar los Todo’s pasados de tiempo en letras rojas, y los que estén por vencer en fondo amarillo.</li>
+		<li>Agregar una lista de los Todo’s finalizados.</li>
+		<li>A los administradores se les agrego la posibilidad de ver los Todo’s de los otros usuarios.</li>
+		<li>Se igualo la estética de la lista de usuarios con la de los Todo’s.</li>
+	</ul>
+</div>
+
+<div class="div_about">
+	<p class="texto_normal">Gracias a todos los que hicieron posible la Diplomatura en Programación .Net </p>
+	<ul>
+		<li>UTN FRBA.</li>
+		<li>Osvaldo Olmos.</li>
+		<li>Ivan Franco.</li>
+		<li>A los compañeros del curso.</li>
+		<li class="texto_mayor">...a Maximo, mi hijo, que me presto algunas horas de juegos.</li>
+	</ul>
+</div>

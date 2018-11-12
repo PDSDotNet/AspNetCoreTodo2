@@ -13,10 +13,9 @@ using AspNetCoreTodo.Models;
 namespace AspNetCoreTodo.Controllers
 {
     [Authorize]
-    public class TodoController : Controller
+    public class TodoController : BaseController
     {
         private readonly ITodoItemService _todoItemService;
-        private readonly UserManager<ApplicationUser> _userManager;
 
 
         /// <summary>
@@ -26,17 +25,14 @@ namespace AspNetCoreTodo.Controllers
         /// <param name="userManager"></param>
         public TodoController(  ITodoItemService todoItemService,
                                 UserManager< ApplicationUser> userManager)
+            :base (userManager)
         {
             _todoItemService = todoItemService;
-            _userManager = userManager;
         }
 
 
 
-
-
-
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(/*bool completedItems = false*/)
         {
             //obtencion del usuario logeado
             var currentUser = await _userManager.GetUserAsync( User);
@@ -45,12 +41,33 @@ namespace AspNetCoreTodo.Controllers
 
             var items = await _todoItemService.GetIncompletItemsAsync( currentUser);
 
-            var model = new TodoViewModel()
-            {
-                Items = items
-            };
+                //Current user se hace null para poder ver todos los Todo's.
+                currentUser = null;
+            }
+            var items = await _todoItemService.GetIncompletItemsAsync(currentUser);
 
-            return View(model); 
+            //Creacion de la Vista y pasaje de informcion.
+            var model = new TodoViewModel() { Items = items };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(TodoViewModel todo= null)
+        {
+            //obtencion del usuario logeado
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null)
+                return Challenge(); //fuerza el logeo, mostrando la pagina de logeo
+
+            currentUser = await ObtenerUsuarioSeleccionado(todo);
+
+            var items = await _todoItemService.GetIncompletItemsAsync(currentUser);
+
+            //Creacion de la Vista y pasaje de informcion.
+            var model = new TodoViewModel() { Items = items };
+
+            return View(model);
         }
 
 
@@ -65,10 +82,6 @@ namespace AspNetCoreTodo.Controllers
             var currentUser = await _userManager.GetUserAsync(User);
             if (currentUser == null)
                 return Challenge(); //fuerza el logeo, mostrando la pagina de logeo
-
-            if (newItem.DueAt < DateTimeOffset.Now.AddSeconds(-10))
-                return BadRequest("Fecha incorrecta. No se pueden crear tareas en el pasado!");
-                //return RedirectToAction("Index");
 
             var succesfull = await _todoItemService.AddItemAsync(newItem, currentUser);
             if (!succesfull)
