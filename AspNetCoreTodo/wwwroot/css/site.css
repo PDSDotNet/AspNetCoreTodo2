@@ -36,11 +36,11 @@ body {
     }
 }
 
-div.todo-panel{
-    margin-top:15px;
+div.todo-panel {
+    margin-top: 55px;
 }
 
-table tr.done{
-    text-decoration:line-through;
-    color:#888;
+table tr.done {
+    text-decoration: line-through;
+    color: #888;
 }

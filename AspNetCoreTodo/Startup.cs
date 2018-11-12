@@ -56,6 +56,7 @@ namespace AspNetCoreTodo
 
             //services.AddSingleton<ITodoItemService, FakeTodoItemService>();
             services.AddScoped<ITodoItemService, TodoItemService>();
+            services.AddScoped<IEndedTodoItemService, EndedTodoItemService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

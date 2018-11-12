@@ -1,0 +1,34 @@
+﻿@model TodoViewModel
+@using Humanizer
+
+@{
+	ViewData["TitleCompleteTodo"] = "Tareas finalizadas";
+}
+
+<div class="panel panel-default todo-panel">
+	<div class="panel-heading">
+		<h2>@ViewData["TitleCompleteTodo"]</h2>
+	</div>
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<td>&#x2714;</td>
+				<td>Item</td>
+				<td>Due</td>
+			</tr>
+		</thead>
+
+
+		@foreach (var item in Model.Items)
+		{
+			<tr>
+				<td>&#x2714;</td>
+				<td>@item.Title</td>
+				<td>@item.DueAt.Humanize()</td>
+			</tr>
+		}
+	</table>
+
+</div>
+
