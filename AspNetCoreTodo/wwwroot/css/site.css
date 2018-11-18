@@ -36,6 +36,9 @@ body {
     }
 }
 
+
+
+/*Modificaciones de aspecto agregadas por el libro LittleAspNetCoreBook*/
 div.todo-panel {
     margin-top: 15px;
 }
@@ -43,4 +46,27 @@ div.todo-panel {
 table tr.done {
     text-decoration: line-through;
     color: #888;
+}
+
+
+
+/*Modificaciones de aspecto agregadas por PDS*/
+/*2018-11-15*/
+.todo_end_ontime {
+    color: black;
+    background-color: rgb(255, 255, 255);
+}
+
+.todo_close_to_end {
+    color: black;
+    background-color: rgb(241, 245, 156);
+}
+
+.todo_end_offtime {
+    color: rgb(255, 0, 0);
+    background-color: rgb(255, 200, 200);
+}
+
+.todo_help_time{
+    width: 170px;
 }

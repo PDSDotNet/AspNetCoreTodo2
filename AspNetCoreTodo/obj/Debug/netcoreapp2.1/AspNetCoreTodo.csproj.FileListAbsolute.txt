@@ -74,3 +74,4 @@ D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcor
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\Razor\Views\ManageUsers\Index.g.cshtml.cs
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_AdminActionsPartial.g.cshtml.cs
 D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\Razor\Views\EndedTodo\Index.g.cshtml.cs
+D:\Facultad\Cursos\dotNet\Codigo\AspNetCoreTodo2\AspNetCoreTodo\obj\Debug\netcoreapp2.1\AspNetCoreTodo.csprojAssemblyReference.cache

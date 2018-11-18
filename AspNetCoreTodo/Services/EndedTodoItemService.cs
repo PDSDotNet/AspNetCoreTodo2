@@ -28,7 +28,7 @@ namespace AspNetCoreTodo.Services
 
         public async Task<TodoItem[]> GetCompletItemsAsync(ApplicationUser user)
         {
-            return await _context.Items.Where(  x => x.IsDone == true && x.UserId == user.Id).ToArrayAsync();
+            return await _context.Items.Where(  x => x.IsDone == true && x.UserId == user.Id).OrderByDescending(c => c.EndDateTime).ToArrayAsync();
         }
     }
 }
