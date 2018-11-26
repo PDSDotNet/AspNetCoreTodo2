@@ -87,3 +87,13 @@ table tr.done {
     display: inline-block;
     margin-left: 436px;
 }
+
+
+.user_id {
+    width:30%;
+}
+
+
+.user_mail {
+    min-width: 100px;
+}
