@@ -33,6 +33,21 @@ namespace AspNetCoreTodo.Controllers
         }
 
 
+        private async void ObtenerListaUsuarios()
+        {
+            //Obtencion de todos los usuarios, y con estos crea lista de 
+            //usuarios a nostrar en el dropdown.
+            var everyone = await _userManager.Users.ToArrayAsync();
+            List<SelectListItem> lstUsr = new List<SelectListItem>();
+            lstUsr.Add(new SelectListItem { Text = "Todos los usuarios", Value = "" });
+
+            foreach (var usr in everyone)
+            {
+                lstUsr.Add(new SelectListItem { Text = usr.Email, Value = usr.Id });
+            }
+            ViewBag.ListaUsuarios = lstUsr;
+        }
+
 
 
 
@@ -46,17 +61,7 @@ namespace AspNetCoreTodo.Controllers
 
             if (await _userManager.IsInRoleAsync(currentUser, "Administrator"))
             {
-                //Obtencion de todos los usuarios, y con estos crea lista de 
-                //usuarios a nostrar en el dropdown.
-                var everyone = await _userManager.Users.ToArrayAsync();
-                List<SelectListItem> lstUsr = new List<SelectListItem>();
-                lstUsr.Add(new SelectListItem { Text = "Todos los usuarios", Value = "" });
-
-                foreach (var usr in everyone)
-                {
-                    lstUsr.Add(new SelectListItem { Text = usr.Email, Value = usr.Id });
-                }
-                ViewBag.ListaUsuarios = lstUsr;
+                ObtenerListaUsuarios();
 
                 //Current user se hace null para poder ver todos los Todo's.
                 currentUser = null;
@@ -79,20 +84,10 @@ namespace AspNetCoreTodo.Controllers
 
             if (await _userManager.IsInRoleAsync(currentUser, "Administrator"))
             {
-                //Obtencion de todos los usuarios, y con estos crea lista de 
-                //usuarios a nostrar en el dropdown.
-                var everyone = await _userManager.Users.ToArrayAsync();
-                List<SelectListItem> lstUsr = new List<SelectListItem>();
-                lstUsr.Add(new SelectListItem { Text = "Todos los usuarios", Value = "" });
-
-                foreach (var usr in everyone)
-                {
-                    lstUsr.Add(new SelectListItem { Text = usr.Email, Value = usr.Id });
-                }
-                ViewBag.ListaUsuarios = lstUsr;
+                ObtenerListaUsuarios();
 
                 //Current user se hace null para poder ver todos los Todo's.
-                if(todo.Usuarios==null)
+                if (todo.Usuarios==null)
                     currentUser = null;
                 else
                     currentUser = await _userManager.FindByIdAsync(todo.Usuarios);

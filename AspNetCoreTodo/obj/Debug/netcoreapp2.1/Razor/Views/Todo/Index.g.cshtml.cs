@@ -82,7 +82,7 @@ using Humanizer;
             WriteLiteral("</h2>\r\n\r\n\t\t</div>\r\n\t\t<div class=\"pos_user_selector\">\r\n\t\t\t");
             EndContext();
             BeginContext(318, 39, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "51da636432f0403589610ab6f32b1ba7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "374f2e7b8b8946f9a4c3b7757871a6ee", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -133,7 +133,7 @@ WriteAttributeValue("", 896, todoColor, 896, 10, false);
             WriteLiteral(">\r\n\t\t\t\t<td>\r\n\t\t\t\t\t");
             EndContext();
             BeginContext(925, 165, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d2e10c17c47c4677827ce8adeee75d1a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a062df2532d14e8cbb1cdef927ed1f5b", async() => {
                 BeginContext(967, 91, true);
                 WriteLiteral("\r\n\t\t\t\t\t\t<input type=\"checkbox\" class=\"done-checkbox\">\r\n\t\t\t\t\t\t<input type=\"hidden\" name=\"id\"");
                 EndContext();
