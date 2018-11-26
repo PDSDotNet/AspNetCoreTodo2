@@ -64,9 +64,26 @@ table tr.done {
 
 .todo_end_offtime {
     color: rgb(255, 0, 0);
-    background-color: rgb(255, 200, 200);
+    background-color: rgb(251, 251, 251);
 }
 
 .todo_help_time{
     width: 170px;
+}
+
+.user_list_partial {
+    
+    display: inline-block;
+}
+
+.pos_titulo {
+    width: 400px;
+    background-color: rgb(255, 230, 200);
+    display: inline-block;
+}
+.pos_user_selector {
+    width: 200px;
+    background-color: rgb(255, 200, 230);
+    display: inline-block;
+    margin-left: 436px;
 }

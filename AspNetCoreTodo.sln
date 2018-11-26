@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreTodo", "AspNetCor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreTodo.xUnitTest", "AspNetCoreTodo.xUnitTest\AspNetCoreTodo.xUnitTest.csproj", "{B141FDA2-D6FD-4928-9FDD-243E3AE6F070}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreTodo.IntegrationTests", "AspNetCoreTodo.IntegrationTests\AspNetCoreTodo.IntegrationTests.csproj", "{3D411620-57DC-4072-9346-AEF493A76112}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreTodo.IntegrationTests", "AspNetCoreTodo.IntegrationTests\AspNetCoreTodo.IntegrationTests.csproj", "{3D411620-57DC-4072-9346-AEF493A76112}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

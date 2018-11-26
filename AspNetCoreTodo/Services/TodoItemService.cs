@@ -26,14 +26,20 @@ namespace AspNetCoreTodo.Services
 
 
 
-
-
+        /// <summary>
+        /// Retorna los Todo's no terminados de un usuario especifico,
+        /// o de todos los usuarios en caso de que user=null.
+        /// </summary>
+        /// <param name="user">Usuario dueño de los Todo's</param>
+        /// <returns></returns>
         public async Task<TodoItem[]> GetIncompletItemsAsync( ApplicationUser user)
         {
             //return await _context.Items.Where(x => x.IsDone == false && x.UserId == user.Id).ToArrayAsync();
-            return await _context.Items.Where(x => x.IsDone == false && x.UserId == user.Id).OrderBy(c=> c.DueAt).ToArrayAsync();
+            if(user == null)
+                return await _context.Items.Where(x => x.IsDone == false).OrderBy(c => c.DueAt).ToArrayAsync();
+            else
+                return await _context.Items.Where(x => x.IsDone == false && x.UserId == user.Id).OrderBy(c=> c.DueAt).ToArrayAsync();
         }
-
 
 
         public async Task<bool> AddItemAsync(TodoItem newItem, ApplicationUser user)

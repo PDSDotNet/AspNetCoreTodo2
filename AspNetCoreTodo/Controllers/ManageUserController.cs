@@ -42,5 +42,6 @@ namespace AspNetCoreTodo.Controllers
 
             return View(model);
         }
+
     }
 }

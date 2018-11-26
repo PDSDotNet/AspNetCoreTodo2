@@ -1,13 +1,22 @@
 ﻿@model TodoViewModel
 @using Humanizer
 
+
+
 @{
 	ViewData["TitleIncompleteTodo"] = "Gestionador de tareas";
 }
 
 <div class="panel panel-default todo-panel">
+
 	<div class="panel-heading">
-		<h2>@ViewData["TitleIncompleteTodo"]</h2>
+		<div class="pos_titulo">
+			<h2>@ViewData["TitleIncompleteTodo"]</h2>
+
+		</div>
+		<div class="pos_user_selector">
+			<partial name="_UserSelectorPartial" />
+		</div>
 	</div>
 
 	<table class="table table-hover">
@@ -58,5 +67,7 @@
 	<p class="todo_end_offtime todo_help_time">Todo's fuera de tiempo</p>
 	<p class="todo_close_to_end todo_help_time">Todo's a un día de expirar</p>
 </div>
+
+
 
 
