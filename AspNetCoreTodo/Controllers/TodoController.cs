@@ -14,10 +14,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace AspNetCoreTodo.Controllers
 {
     [Authorize]
-    public class TodoController : Controller
+    public class TodoController : _Controller
     {
         private readonly ITodoItemService _todoItemService;
-        private readonly UserManager<ApplicationUser> _userManager;
 
 
         /// <summary>
@@ -27,28 +26,10 @@ namespace AspNetCoreTodo.Controllers
         /// <param name="userManager"></param>
         public TodoController(  ITodoItemService todoItemService,
                                 UserManager< ApplicationUser> userManager)
+            :base (userManager)
         {
             _todoItemService = todoItemService;
-            _userManager = userManager;
         }
-
-
-        private async void ObtenerListaUsuarios()
-        {
-            //Obtencion de todos los usuarios, y con estos crea lista de 
-            //usuarios a nostrar en el dropdown.
-            var everyone = await _userManager.Users.ToArrayAsync();
-            List<SelectListItem> lstUsr = new List<SelectListItem>();
-            lstUsr.Add(new SelectListItem { Text = "Todos los usuarios", Value = "" });
-
-            foreach (var usr in everyone)
-            {
-                lstUsr.Add(new SelectListItem { Text = usr.Email, Value = usr.Id });
-            }
-            ViewBag.ListaUsuarios = lstUsr;
-        }
-
-
 
 
 
@@ -82,16 +63,8 @@ namespace AspNetCoreTodo.Controllers
             if (currentUser == null)
                 return Challenge(); //fuerza el logeo, mostrando la pagina de logeo
 
-            if (await _userManager.IsInRoleAsync(currentUser, "Administrator"))
-            {
-                ObtenerListaUsuarios();
+            currentUser = await ObtenerUsuarioSeleccionado(todo);
 
-                //Current user se hace null para poder ver todos los Todo's.
-                if (todo.Usuarios==null)
-                    currentUser = null;
-                else
-                    currentUser = await _userManager.FindByIdAsync(todo.Usuarios);
-            }
             var items = await _todoItemService.GetIncompletItemsAsync(currentUser);
 
             //Creacion de la Vista y pasaje de informcion.
