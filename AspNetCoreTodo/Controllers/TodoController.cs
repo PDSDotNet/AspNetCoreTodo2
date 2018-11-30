@@ -52,7 +52,7 @@ namespace AspNetCoreTodo.Controllers
 
 
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(/*bool completedItems = false*/)
         {
             //obtencion del usuario logeado
             var currentUser = await _userManager.GetUserAsync(User);

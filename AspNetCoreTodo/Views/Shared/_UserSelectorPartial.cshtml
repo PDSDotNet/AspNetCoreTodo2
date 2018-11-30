@@ -13,10 +13,10 @@
 
 	if (isAdmin)
 	{
-		<div class="user_list_partial">
+		<div>
 			<form asp-action="Index" method="POST">
-				<select asp-for="Usuarios" asp-items="ViewBag.ListaUsuarios"></select>
-				<button type="submit">Cambiar usuario</button>
+				<select asp-for="Usuarios" asp-items="ViewBag.ListaUsuarios" onchange="this.form.submit()"></select>
+				<!--<button type="submit">Cambiar usuario</button>-->
 			</form>
 		</div>
 	}

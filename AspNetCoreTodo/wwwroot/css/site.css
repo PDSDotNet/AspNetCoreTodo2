@@ -71,21 +71,23 @@ table tr.done {
     width: 170px;
 }
 
-.user_list_partial {
-    
-    display: inline-block;
+
+
+
+.pos_contenedor_titulo {
+    position: relative;
 }
 
 .pos_titulo {
     width: 400px;
-    background-color: rgb(255, 230, 200);
     display: inline-block;
 }
 .pos_user_selector {
     width: 200px;
-    background-color: rgb(255, 200, 230);
-    display: inline-block;
-    margin-left: 436px;
+    position: absolute;
+    text-align: right;
+    bottom: 20%;
+    right: 1%;
 }
 
 
@@ -93,7 +95,23 @@ table tr.done {
     width:30%;
 }
 
-
 .user_mail {
     min-width: 100px;
 }
+
+
+
+/*2018-11-26 usados en About*/
+.texto_mayor {
+    font-size:large;
+}
+.texto_normal {
+    font-size:medium;
+}
+
+.div_about {
+    padding: 20px;
+}
+
+
+
