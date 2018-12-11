@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Identity;
 
 using AspNetCoreTodo.Services;
 using AspNetCoreTodo.Models;
+using Microsoft.EntityFrameworkCore;        //2018-12-10 Fix NewFeatures
+using Microsoft.AspNetCore.Mvc.Rendering;   //2018-12-10 Fix NewFeatures
 
 
 namespace AspNetCoreTodo.Controllers
@@ -38,15 +40,18 @@ namespace AspNetCoreTodo.Controllers
             var currentUser = await _userManager.GetUserAsync( User);
             if (currentUser == null)
                 return Challenge(); //fuerza el logeo, mostrando la pagina de logeo
-
-            var items = await _todoItemService.GetIncompletItemsAsync( currentUser);
+            
+            //2018-12-10 Fix NewFeatures (todo el if)
+            if (await _userManager.IsInRoleAsync(currentUser, "Administrator"))
+            {
+                ObtenerListaUsuarios();
 
                 //Current user se hace null para poder ver todos los Todo's.
                 currentUser = null;
             }
-            var items = await _todoItemService.GetIncompletItemsAsync(currentUser);
+            var items = await _todoItemService.GetIncompletItemsAsync( currentUser);
 
-            //Creacion de la Vista y pasaje de informcion.
+             //Creacion de la Vista y pasaje de informcion.
             var model = new TodoViewModel() { Items = items };
 
             return View(model);
@@ -115,11 +120,5 @@ namespace AspNetCoreTodo.Controllers
 
             return RedirectToAction("Index");
         }
-
-
-
-
-
-
     }
 }

@@ -24,7 +24,6 @@ namespace AspNetCoreTodo.Controllers
 
         public IActionResult Contact()
         {
-            //ViewData["Message"] = "Your contact page.";
             ViewData["Message"] = "Informacion de contacto.";
             return View();
         }

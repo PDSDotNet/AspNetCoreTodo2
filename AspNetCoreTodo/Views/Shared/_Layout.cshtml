@@ -8,7 +8,6 @@
 	<environment include="Development">
 		<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 		<link rel="stylesheet" href="~/css/site.css" />
-		<!--<link rel="stylesheet" href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.css" />-->
 		<link rel="stylesheet" href="~/lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" />
 	</environment>
 		<environment exclude="Development">
@@ -34,11 +33,6 @@
 					<ul class="nav navbar-nav">
 						<li><a asp-controller="Todo" asp-action="Index" asp-route-completedItems="false">Tareas Pendientes</a></li>
 						<li><a asp-controller="EndedTodo" asp-action="Index">Tareas Finalizadas</a></li>
-						<!--
-							<li><a asp-controller="Todo" asp-action="Index"  asp-route-completedItems="true">Tareas Finalizadas</a></li>
-							Esto funciona y pasa correctamente el valor completedItems a Index().
-							El problema que tube es que era una vista distinta, y tendria que hacer muchas modificaciones a Index
-						-->
 						<partial name="_AdminActionsPartial" />
 						<li><a asp-area="" asp-controller="Home" asp-action="About">Acerca de</a></li>
 						<li><a asp-area="" asp-controller="Home" asp-action="Contact">Contacto</a></li>
@@ -63,8 +57,6 @@
 			<script src="~/lib/jquery/dist/jquery.js"></script>
 			<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
 			<script src="~/js/site.js" asp-append-version="true"></script>
-			<!--<script src="~/lib/bootstrap-datepicker/js/bootstrap-datepicker.js" asp-append-version="true">></script>
-			<script src="~/lib/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>-->
 			<script src="~/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js" asp-append-version="true"></script>
 			<script src="~/lib/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.es.js"></script>
 			<script src="~/js/DatePickerScript.js"></script>

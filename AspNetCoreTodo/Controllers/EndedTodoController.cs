@@ -16,7 +16,6 @@ namespace AspNetCoreTodo.Controllers
     public class EndedTodoController : BaseController
     {
         private readonly IEndedTodoItemService _endedTodoItemService;
-        //private readonly UserManager<ApplicationUser> _userManager;
 
         /// <summary>
         /// Constructor del controlador.

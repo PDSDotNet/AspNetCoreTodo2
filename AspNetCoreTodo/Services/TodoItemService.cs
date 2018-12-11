@@ -34,8 +34,12 @@ namespace AspNetCoreTodo.Services
         /// <returns></returns>
         public async Task<TodoItem[]> GetIncompletItemsAsync( ApplicationUser user)
         {
-            //return await _context.Items.Where(x => x.IsDone == false && x.UserId == user.Id).ToArrayAsync();
-            return await _context.Items.Where(x => x.IsDone == false && x.UserId == user.Id).OrderBy(c=> c.DueAt).ToArrayAsync();
+            //2018-12-10 Fix NewFeatures (todo el if)
+            if (user == null)
+                return await _context.Items.Where(x => x.IsDone == false).OrderBy(c => c.DueAt).ToArrayAsync();
+            else
+                return await _context.Items.Where(x => x.IsDone == false && x.UserId == user.Id).OrderBy(c => c.DueAt).ToArrayAsync();
+
         }
 
         /// <summary>
