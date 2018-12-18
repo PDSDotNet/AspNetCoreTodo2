@@ -2,44 +2,66 @@
 @using Humanizer
 
 @{
-    ViewData["Title"] = "Gestionador de tareas";
+	ViewData["TitleIncompleteTodo"] = "Gestionador de tareas";
 }
 
 <div class="panel panel-default todo-panel">
-    <div class="panel-heading">
-		<h2>@ViewData["Title"]</h2>
+	<div class="panel-heading pos_contenedor_titulo">
+		<div class="pos_titulo">
+			<h2>@ViewData["TitleIncompleteTodo"]</h2>
+		</div>
+		<div class="pos_user_selector">
+			<partial name="_UserSelectorPartial" />
+		</div>
 	</div>
 
-    <table class="table table-hover">
-        <thead>
-			<tr>		
-				<td><input type="checkbox" class="done-checkbox" /> Mostrar tareas terminadas</td>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<td>&#x2714;</td>
+				<td>Item</td>
+				<td>Due</td>
 			</tr>
-            <tr>
-                <td>&#x2714;</td>
-                <td>Item</td>
-                <td>Due</td>
-            </tr>
-        </thead>
+		</thead>
 
 
-        @foreach (var item in Model.Items)
-        {
-            <tr>
-                <td>
+		@foreach (var item in Model.Items)
+		{
+			var todoColor = "todo_end_ontime";
+			if (item.DueAt.HasValue)
+			{
+				if (item.DueAt.Value < DateTime.Now.AddDays(1) && item.DueAt.Value > DateTime.Now)
+				{
+					todoColor = "todo_close_to_end";
+				}
+				if (item.DueAt.Value < DateTime.Now)
+				{
+					todoColor = "todo_end_offtime";
+				}
+			}
+
+			<tr class="@todoColor">
+				<td>
 					<form asp-action="MarkDone" method="POST">
-						<input type="checkbox" class="done-checkbox" >
-						<input type="hidden" name="id" value="@item.Id" >
+						<input type="checkbox" class="done-checkbox">
+						<input type="hidden" name="id" value="@item.Id">
 					</form>
-                </td>
-                <td>@item.Title</td>
-                <td>@item.DueAt.Humanize()</td>
-            </tr>
-        }
-    </table>
+				</td>
+				<td>@item.Title</td>
+				<td>@item.DueAt.Humanize()</td>
+			</tr>
+		}
+	</table>
 
-    <div class="panel-footer add-item-form">
-        @await  Html.PartialAsync("AddItemPartial", new TodoItem())
-        <!--despues vamos a agregar cosas aqui-->
-    </div>
+	<div class="panel-footer add-item-form">
+		@await Html.PartialAsync("AddItemPartial", new TodoItem())
+		<!--despues vamos a agregar cosas aqui-->
+	</div>
 </div>
+
+<div>
+	<p class="todo_end_offtime todo_help_time">Todo's fuera de tiempo</p>
+	<p class="todo_close_to_end todo_help_time">Todo's a un día de expirar</p>
+</div>
+
+

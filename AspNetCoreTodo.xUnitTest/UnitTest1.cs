@@ -84,11 +84,11 @@ namespace AspNetCoreTodo.xUnitTest
                 Assert.True(diference < TimeSpan.FromSeconds(3));
             }
         }
-        /*
+
         [Fact]
         public async Task NoAddNewItemAsPastDueDate()
         {
-            await SetUp("fake-000", "fake@example.com", "Testing?", DateTimeOffset.Now.AddDays(-3));
+            await SetUp("fake-000", "fake@example.com", "Testing?", DateTimeOffset.Now.AddMinutes(-3));
 
             ///Se crea otro contexto, y se verifica:
             ///     1) Que solo tenga un TodoItem.
@@ -101,7 +101,25 @@ namespace AspNetCoreTodo.xUnitTest
                 Assert.Equal(0, itemsInDataBase);
             }
         }
-        */
+
+        
+        [Fact]
+        public async Task AddNewItemAsNullDueDate()
+        {
+            await SetUp("fake-000", "fake@example.com", "Testing?", null);
+
+            ///Se crea otro contexto, y se verifica:
+            ///     1) Que solo tenga un TodoItem.
+            ///     2) Se obtiene el primer item y se verifica que coincida el Title.
+            ///     3) Que no este marcado como done 
+            ///     4) Que la diferencia de tiempo sea menor de 3 segundos que la hora actual.
+            using (var CDB = new ApplicationDbContext(ODB.Options))
+            {
+                var itemsInDataBase = await CDB.Items.CountAsync();
+                Assert.Equal(1, itemsInDataBase);
+            }
+        }
+
 
         [Fact]
         public async Task MarkDoneAnItemWithGoodId()

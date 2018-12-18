@@ -1,0 +1,71 @@
+﻿@model TodoViewModel
+@using Humanizer
+@using System;
+
+
+@{
+	ViewData["TitleCompleteTodo"] = "Tareas finalizadas";
+}
+
+
+
+<div class="panel panel-default todo-panel">
+	<div class="panel-heading pos_contenedor_titulo">
+		<div class="pos_titulo">
+			<h2>&#x2714 @ViewData["TitleCompleteTodo"]</h2>
+		</div>
+		<div class="pos_user_selector">
+			<partial name="_UserSelectorPartial" />
+		</div>
+	</div>
+
+
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<td>Item</td>
+				<td>Creacion</td>
+				<td>Due</td>
+				<!--<td>Finalizacion</td>-->
+				<td>Resuelta:</td>
+			</tr>
+		</thead>
+
+
+		@foreach (var item in Model.Items)
+		{
+			string tiempoDeRespuesta = "";
+			var todoColor = "todo_end_ontime";
+
+			if (item.DueAt.HasValue && item.EndDateTime.HasValue)
+			{
+				TimeSpan deltaDeTiempo = item.DueAt.Value - item.EndDateTime.Value;
+				if (item.DueAt.Value < item.EndDateTime.Value)
+				{
+					tiempoDeRespuesta = deltaDeTiempo.Humanize() + " tarde.";
+					todoColor = "todo_end_offtime";
+				}
+				else
+				{
+					tiempoDeRespuesta = deltaDeTiempo.Humanize() + " antes.";
+					todoColor = "todo_end_ontime";
+				}
+			}
+
+			<tr class="@todoColor">
+				<td>@item.Title</td>
+				<td>@item.CreateDateTime?.ToString("g")</td>
+				<td>@item.DueAt?.ToString("g")</td>
+				<!--<td>@item.EndDateTime?.ToString("g")</td>-->
+				<td>@tiempoDeRespuesta</td>
+			</tr>
+		}
+	</table>
+
+</div>
+
+<div>
+	<p class="todo_end_offtime todo_help_time">Todo's fuera de tiempo</p>
+</div>
+

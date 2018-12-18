@@ -5,7 +5,7 @@
         todayBtn: true,
         weekStart: '1',
         autoclose: true,
-        startDate: '28/10/2018',
+        startDate: '-0d',
         language: "es"
     });
 })

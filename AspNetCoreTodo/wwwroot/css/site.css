@@ -36,11 +36,82 @@ body {
     }
 }
 
-div.todo-panel{
-    margin-top:15px;
+
+
+/*Modificaciones de aspecto agregadas por el libro LittleAspNetCoreBook*/
+div.todo-panel {
+    margin-top: 15px;
 }
 
-table tr.done{
-    text-decoration:line-through;
-    color:#888;
+table tr.done {
+    text-decoration: line-through;
+    color: #888;
 }
+
+
+
+/*Modificaciones de aspecto agregadas por PDS*/
+/*2018-11-15*/
+.todo_end_ontime {
+    color: black;
+    background-color: rgb(255, 255, 255);
+}
+
+.todo_close_to_end {
+    color: black;
+    background-color: rgb(241, 245, 156);
+}
+
+.todo_end_offtime {
+    color: rgb(255, 0, 0);
+    background-color: rgb(251, 251, 251);
+}
+
+.todo_help_time{
+    width: 170px;
+}
+
+
+
+
+.pos_contenedor_titulo {
+    position: relative;
+}
+
+.pos_titulo {
+    width: 400px;
+    display: inline-block;
+}
+.pos_user_selector {
+    width: 200px;
+    position: absolute;
+    text-align: right;
+    bottom: 20%;
+    right: 1%;
+}
+
+
+.user_id {
+    width:30%;
+}
+
+.user_mail {
+    min-width: 100px;
+}
+
+
+
+/*2018-11-26 usados en About*/
+.texto_mayor {
+    font-size:large;
+}
+.texto_normal {
+    font-size:medium;
+}
+
+.div_about {
+    padding: 20px;
+}
+
+
+
